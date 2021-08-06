@@ -9,11 +9,11 @@ API REST: https://rickandmortyapi.com/documentation/#rest
 
 ## Stack
 
-NodeJs: 14.17.1
-Npm: 6.14.13
-Vuejs(vue@next): 3.1.5
-@vue/cli: 4.5.13
+NodeJs: 14.17.1  
+Npm: 6.14.13  
+Vuejs(vue@next): 3.1.5  
+@vue/cli: 4.5.13  
 
 ## Dev Tools
 
-Visual Studio Code con: Vetur, StandarJs
+Visual Studio Code con: Vetur, StandarJs  
