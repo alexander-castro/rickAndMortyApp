@@ -1,18 +1,24 @@
 <template>
-  <CharacterCard/>
+  <q-layout view="lHh Lpr lFf">
+    <q-page-container>
+      <CharacterList />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
-import CharacterCard from './components/CharacterCard.vue'
+import { ref } from 'vue'
+import CharacterList from './components/CharacterList.vue'
 
 export default {
-  name: 'App',
+  name: 'LayoutDefault',
   components: {
-    CharacterCard
+    CharacterList
+  },
+  setup () {
+    return {
+      leftDrawerOpen: ref(false)
+    }
   }
 }
 </script>
-
-<style>
-
-</style>
