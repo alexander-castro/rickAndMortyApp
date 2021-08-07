@@ -12,11 +12,12 @@
       <div class="row">
         <div v-if="characterList.length > 0" class="row q-gutter-md justify-between">
           <div class="col-md-3" v-for="character in characterList" :key="character.id">
-            <character-card v-bind="character" />
+            <character-card v-bind="character" @show-details-modal="showDetailsModal"/>
           </div>
           <div class="col-md-3"></div>
         </div>
         <no-result-card v-else class="row" />
+        <character-details-dialog></character-details-dialog>
       </div>
     </div>
   </div>
@@ -25,12 +26,14 @@
 <script>
 import CharacterCard from '@/components/CharacterCard.vue'
 import NoResultCard from '@/components/NoResultCard.vue'
+import CharacterDetailsDialog from '@/components/CharacterDetailsDialog.vue'
 
 export default {
   name: 'CharacterList',
   components: {
     CharacterCard,
-    NoResultCard
+    NoResultCard,
+    CharacterDetailsDialog
   },
   props: {},
   data () {
@@ -41,6 +44,11 @@ export default {
   async mounted () {
     const { data } = await this.axios.get(this.API + '/character/' + '?page=1')
     this.characterList = data.results
+  },
+  methods: {
+    showDetailsModal (id) {
+      console.log(id)
+    }
   }
 }
 </script>

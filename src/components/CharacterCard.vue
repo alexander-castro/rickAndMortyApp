@@ -2,28 +2,28 @@
   <q-card class="my-card card-character" flat bordered>
     <q-card-section horizontal>
       <q-card-section class="q-pa-none image-character">
-        <q-img class="col image-character" :src="image"/>
+        <q-img class="col image-character" :src="image" />
         <q-btn class="btn-fav button-float" round size="sm">
           <q-icon class="disabled-color" name="start" size="xs" />
         </q-btn>
       </q-card-section>
-      <q-card-section class="">
-        <q-card-section class="q-pa-none q-pb-sm">
-          <div class="label-status"><q-badge class="status-indicator q-pa-none"
-          :class="[status==='Alive' ? 'green' : 'red']" rounded/>
-           <span id="status">{{status}}</span>
-           - <span id="type">{{species}}</span>
-          </div>
-          <div id="name" class="label-name">{{name}}</div>
-        </q-card-section>
-        <q-card-section class="q-pa-none q-pb-sm">
-          <div id="locationLb" class="label">Last known location:</div>
-          <div id="location" class="label-field">{{location.name}}</div>
-        </q-card-section>
-        <q-card-section class="q-pa-none">
-          <div id="lastSeenLb" class="label">First seen in:</div>
-          <div id="lastSeen" class="label-field">{{origin.name}}</div>
-        </q-card-section>
+      <q-card-section class="cursor-pointer" @click="$emit('showDetailsModal', id)">
+            <q-card-section class="q-pa-none q-pb-sm">
+              <div class="label-status">
+                <q-badge class="status-indicator q-pa-none" :class="[status === 'Alive' ? 'green' : 'red']" rounded />
+                <span id="status">{{ status }}</span>
+                - <span id="type">{{ species }}</span>
+              </div>
+              <div id="name" class="label-name">{{ name }}</div>
+            </q-card-section>
+            <q-card-section class="q-pa-none q-pb-sm">
+              <div id="locationLb" class="label">Last known location:</div>
+              <div id="location" class="label-field">{{ location.name }}</div>
+            </q-card-section>
+            <q-card-section class="q-pa-none">
+              <div id="lastSeenLb" class="label">First seen in:</div>
+              <div id="lastSeen" class="label-field">{{ origin.name }}</div>
+            </q-card-section>
       </q-card-section>
     </q-card-section>
   </q-card>
@@ -42,9 +42,9 @@ export default {
     image: String
   },
   data () {
-    return {
-    }
-  }
+    return {}
+  },
+  emits: ['showDetailsModal']
 }
 </script>
 
@@ -84,7 +84,7 @@ export default {
   min-width: 6px !important;
   margin-right: 5px;
 }
-.btn-fav{
+.btn-fav {
   transform: translate(-120%, 340%);
 }
 .status-indicator.red {
