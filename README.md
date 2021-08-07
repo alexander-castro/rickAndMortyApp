@@ -13,8 +13,10 @@ NodeJs: 14.17.1
 Npm: 6.14.13  
 Vuejs(vue@next): 3.1.5  
 @vue/cli: 4.5.13  
+quasar: 2.0.0  
 vue-jest: 5.0.0-0  
 testing-library/vue: 5.8.2  
+jest: 27.0.6  
 
 ## Dev Tools
 
