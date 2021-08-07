@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-for="character in characterDataList" :key="character.id">
+  <div class="row q-gutter-xs justify-center">
+    <div class="col-3" v-for="character in characterList" :key="character.id">
       <character-card v-bind="character" />
     </div>
   </div>
@@ -17,26 +17,13 @@ export default {
   props: {},
   data () {
     return {
-      characterDataList: [
-        {
-          id: 1,
-          name: 'Rick Sanchez',
-          status: 'Dead',
-          species: 'Human',
-          type: '',
-          gender: 'Male',
-          origin: {
-            name: 'Earth',
-            url: 'https://rickandmortyapi.com/api/location/1'
-          },
-          location: {
-            name: 'Earth',
-            url: 'https://rickandmortyapi.com/api/location/20'
-          },
-          image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
-        }
-      ]
+      characterList: []
     }
+  },
+  async mounted () {
+    const { data } = await this.axios.get(this.API + '/character/' + '?page=1')
+    console.log(data)
+    this.characterList = data.results
   }
 }
 </script>

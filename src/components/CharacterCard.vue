@@ -92,7 +92,8 @@ export default {
 }
 .button-float {
   background: #f2f2f2;
-  transform: translate(-120%, 160%);
+  transform: translate(-120%, 340%);
+  position: absolute;
 }
 .button-float .disabled-color {
   color: #828282 !important;
