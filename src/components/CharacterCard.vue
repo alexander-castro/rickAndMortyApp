@@ -3,7 +3,7 @@
     <q-card-section horizontal>
       <q-card-section class="q-pa-none image-character">
         <q-img class="col image-character" :src="image"/>
-        <q-btn class="button-float" round size="sm">
+        <q-btn class="btn-fav button-float" round size="sm">
           <q-icon class="disabled-color" name="start" size="xs" />
         </q-btn>
       </q-card-section>
@@ -84,21 +84,13 @@ export default {
   min-width: 6px !important;
   margin-right: 5px;
 }
+.btn-fav{
+  transform: translate(-120%, 340%);
+}
 .status-indicator.red {
   background: #eb5757;
 }
 .status-indicator.green {
   background: #27ae60;
-}
-.button-float {
-  background: #f2f2f2;
-  transform: translate(-120%, 340%);
-  position: absolute;
-}
-.button-float .disabled-color {
-  color: #828282 !important;
-}
-.button-float .enabled-color {
-  color: #f2994a !important;
 }
 </style>

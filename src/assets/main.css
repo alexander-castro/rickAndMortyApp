@@ -3,3 +3,14 @@
     font-style: normal;
     font-weight: normal !important;
   }
+
+  .button-float {
+    background: #f2f2f2;
+    position: absolute;
+  }
+  .button-float .disabled-color {
+    color: #828282 !important;
+  }
+  .button-float .enabled-color {
+    color: #f2994a !important;
+  }
