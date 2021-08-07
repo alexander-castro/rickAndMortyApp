@@ -4,15 +4,18 @@
       <character-card v-bind="character" />
     </div>
   </div>
+  <no-result-card></no-result-card>
 </template>
 
 <script>
 import CharacterCard from '@/components/CharacterCard.vue'
+import NoResultCard from '@/components/NoResultCard.vue'
 
 export default {
   name: 'CharacterList',
   components: {
-    CharacterCard
+    CharacterCard,
+    NoResultCard
   },
   props: {},
   data () {
