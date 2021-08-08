@@ -5,7 +5,7 @@
       <div class="row vertical-middle">
         <h4 class="label">
           Mostrar favoritos:
-          <q-btn class="button-float btn-fav" round size="sm">
+          <q-btn class="button-float btn-fav" round size="sm" @click="showFavorites">
             <q-icon class="disabled-color" name="start" size="xs" />
           </q-btn>
         </h4>
@@ -17,7 +17,7 @@
           </div>
           <div class="col-md-3"></div>
         </div>
-        <no-result-card v-else class="row" />
+        <no-result-card v-else class="col-md-12"/>
         <character-details-dialog v-model:character="actualCharacter" v-model:episodes-list="episodesList"
           v-model:especial-character-list="especialCharacterList"/>
       </div>
@@ -40,15 +40,15 @@ export default {
   props: {},
   data () {
     return {
-      characterList: [],
       actualCharacter: {},
       episodesList: [],
       especialCharacterList: []
     }
   },
-  async mounted () {
-    const { data } = await this.axios.get(this.API + '/character/' + '?page=1')
-    this.characterList = data.results
+  computed: {
+    characterList () {
+      return this.$store.getters.getList
+    }
   },
   methods: {
     async showDetailsModal (id) {
@@ -79,7 +79,13 @@ export default {
       } else {
         this.especialCharacterList = new Array(data)
       }
+    },
+    showFavorites () {
+      console.log('')
     }
+  },
+  mounted () {
+    this.$store.dispatch('loadList')
   }
 }
 </script>
