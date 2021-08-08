@@ -17,7 +17,8 @@
           <div class="col-md-3"></div>
         </div>
         <no-result-card v-else class="row" />
-        <character-details-dialog></character-details-dialog>
+        <character-details-dialog v-model:character="actualCharacter">
+        </character-details-dialog>
       </div>
     </div>
   </div>
@@ -38,7 +39,8 @@ export default {
   props: {},
   data () {
     return {
-      characterList: []
+      characterList: [],
+      actualCharacter: {}
     }
   },
   async mounted () {
@@ -47,7 +49,7 @@ export default {
   },
   methods: {
     showDetailsModal (id) {
-      console.log(id)
+      this.actualCharacter = this.characterList.find(character => character.id === id)
     }
   }
 }
