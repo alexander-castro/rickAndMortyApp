@@ -1,6 +1,6 @@
 <template>
-  <q-card class="my-detail-card my-card q-pa-none">
-    <q-card-section class="column items-start q-gutter-xs q-pa-md" style="height: 80px; width:165px">
+  <q-card class="my-detail-card my-card q-pa-none" style="height: 90px; width:165px">
+    <q-card-section class="column items-start q-gutter-xs" style="">
       <div class="col name"><q-icon name="info" v-if="item.icon" />{{ item.name }}</div>
       <div class="col info"><span v-if="item.value">{{ item.value }}</span><span v-else>Unknown</span></div>
       <div class="col details" v-if="item.details">{{ item.details }}</div>

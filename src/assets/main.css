@@ -14,3 +14,9 @@
   .button-float .enabled-color {
     color: #f2994a !important;
   }
+  .label {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #4f4f4f;
+  }

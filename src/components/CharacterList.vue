@@ -17,7 +17,7 @@
           <div class="col-md-3"></div>
         </div>
         <no-result-card v-else class="row" />
-        <character-details-dialog v-model:character="actualCharacter">
+        <character-details-dialog v-model:character="actualCharacter" v-model:episodes-list="episodesList">
         </character-details-dialog>
       </div>
     </div>
@@ -39,8 +39,9 @@ export default {
   props: {},
   data () {
     return {
-      characterList: [],
-      actualCharacter: {}
+      characterList: {},
+      actualCharacter: {},
+      episodesList: []
     }
   },
   async mounted () {
@@ -48,8 +49,15 @@ export default {
     this.characterList = data.results
   },
   methods: {
-    showDetailsModal (id) {
+    async showDetailsModal (id) {
       this.actualCharacter = this.characterList.find(character => character.id === id)
+      const episodeIdList = Array.from(this.actualCharacter.episode, x => x.substring(x.lastIndexOf('/') + 1, x.length))
+      const { data } = await this.axios.get(this.API + '/episode/' + episodeIdList)
+      if (episodeIdList.length > 1) {
+        this.episodesList = data
+      } else {
+        this.episodesList = new Array(data)
+      }
     }
   }
 }
