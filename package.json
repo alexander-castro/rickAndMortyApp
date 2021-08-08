@@ -14,7 +14,8 @@
     "core-js": "^3.6.5",
     "quasar": "^2.0.0",
     "vue": "^3.1.5",
-    "vue-loader": "^16.4.1"
+    "vue-loader": "^16.4.1",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@quasar/quasar-app-extension-testing-unit-jest": "^2.2.2",

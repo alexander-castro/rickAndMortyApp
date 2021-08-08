@@ -20,3 +20,14 @@
     line-height: 24px;
     color: #4f4f4f;
   }
+  .btn-green {
+    background: #11555f;
+    padding: 10px 20px;
+    border-radius: 60px;
+  }
+  .text-btn-green {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: none;
+  }

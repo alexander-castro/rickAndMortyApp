@@ -17,8 +17,8 @@
           <div class="col-md-3"></div>
         </div>
         <no-result-card v-else class="row" />
-        <character-details-dialog v-model:character="actualCharacter" v-model:episodes-list="episodesList">
-        </character-details-dialog>
+        <character-details-dialog v-model:character="actualCharacter" v-model:episodes-list="episodesList"
+          v-model:especial-character-list="especialCharacterList"/>
       </div>
     </div>
   </div>
@@ -39,9 +39,10 @@ export default {
   props: {},
   data () {
     return {
-      characterList: {},
+      characterList: [],
       actualCharacter: {},
-      episodesList: []
+      episodesList: [],
+      especialCharacterList: []
     }
   },
   async mounted () {
@@ -51,12 +52,31 @@ export default {
   methods: {
     async showDetailsModal (id) {
       this.actualCharacter = this.characterList.find(character => character.id === id)
-      const episodeIdList = Array.from(this.actualCharacter.episode, x => x.substring(x.lastIndexOf('/') + 1, x.length))
+      const episodeIdList = this.extractIds(this.actualCharacter.episode)
       const { data } = await this.axios.get(this.API + '/episode/' + episodeIdList)
       if (episodeIdList.length > 1) {
         this.episodesList = data
       } else {
         this.episodesList = new Array(data)
+      }
+      this.getEspecialCharactersList()
+      this.$store.commit('setVisible')
+    },
+    extractIds (list) {
+      return Array.from(list, x => x.substring(x.lastIndexOf('/') + 1, x.length))
+    },
+    async getEspecialCharactersList () {
+      const characters = new Set()
+      this.episodesList.forEach(function (episode) {
+        characters.add(episode.characters[Math.floor(Math.random() * episode.characters.length)])
+      })
+      const characterIdsList = this.extractIds(characters)
+      const topSix = characterIdsList.slice(0, characterIdsList.length > 6 ? 6 : characterIdsList.length)
+      const { data } = await this.axios.get(this.API + '/character/' + topSix)
+      if (characterIdsList.length > 1) {
+        this.especialCharacterList = data
+      } else {
+        this.especialCharacterList = new Array(data)
       }
     }
   }

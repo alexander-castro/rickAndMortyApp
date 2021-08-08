@@ -1,7 +1,7 @@
 <template>
   <q-card-section class="row justify-end q-pa-none section-general">
     <img class="background-img" src="@/assets/background.jpg" />
-    <q-btn class="close-btn" color="black" flat round dense v-close-popup>
+    <q-btn class="close-btn" color="black" flat round dense @click="dismiss">
       <q-icon class="close-icon" name="close" size="sm" />
     </q-btn>
   </q-card-section>
@@ -25,6 +25,11 @@ export default {
   name: 'CharacterDetailsDialogHeader',
   props: {
     character: Object
+  },
+  methods: {
+    dismiss () {
+      this.$store.commit('dismiss')
+    }
   }
 }
 </script>

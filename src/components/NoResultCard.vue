@@ -3,8 +3,8 @@
     <div class="col">
       <h3 class="title">Uh-oh!</h3>
       <h5 class="sub-title">¡Pareces perdido en tu viaje!</h5>
-      <q-btn class="btn-delete">
-        <span class="text-btn">Eliminar filtros</span>
+      <q-btn class="btn-green">
+        <span class="text-btn-green">Eliminar filtros</span>
       </q-btn>
     </div>
   </div>
@@ -39,15 +39,5 @@ export default {
   line-height: 150%;
   color: #5e5e5e;
 }
-.btn-delete {
-  background: #11555f;
-  padding: 10px 20px;
-  border-radius: 60px;
-}
-.text-btn {
-  color: #ffffff;
-  font-size: 18px;
-  line-height: 22px;
-  text-transform: none;
-}
+
 </style>

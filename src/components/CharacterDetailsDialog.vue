@@ -1,15 +1,16 @@
 <template>
-  <q-dialog v-model="isVisible">
+  <q-dialog v-model="$store.state.visible">
     <q-card style="max-width: 760px">
-      <character-details-dialog-header v-bind:character="character"></character-details-dialog-header>
-      <character-details-dialog-info v-bind:character="character"></character-details-dialog-info>
+      <character-details-dialog-header v-bind:character="character"/>
+      <character-details-dialog-info v-bind:character="character"/>
       <q-separator spaced inset />
-      <characterDetailsDialogEpisodes v-bind:episodes-list="episodesList"></characterDetailsDialogEpisodes>
+      <characterDetailsDialogEpisodes v-bind:episodes-list="episodesList"/>
       <q-separator spaced inset />
-      <q-card-section class="row justify-center">
-      </q-card-section>
+      <character-details-dialog-characteres v-bind:character-list="especialCharacterList"/>
       <q-card-actions align="right">
-        <q-btn flat label="OK" color="primary" v-close-popup />
+        <q-btn class="btn-green" flat @click="share">
+          <span class="text-btn-green">Compartir personaje</span>
+        </q-btn>
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -19,26 +20,28 @@
 import CharacterDetailsDialogHeader from '@/components/dialog-details/CharacterDetailsDialogHeader.vue'
 import CharacterDetailsDialogInfo from '@/components/dialog-details/CharacterDetailsDialogInfo.vue'
 import CharacterDetailsDialogEpisodes from '@/components/dialog-details/CharacterDetailsDialogEpisodes.vue'
+import CharacterDetailsDialogCharacteres from '@/components/dialog-details/CharacterDetailsDialogCharacteres.vue'
 
 export default {
   name: 'CharacterDetailDialog',
   components: {
     CharacterDetailsDialogHeader,
     CharacterDetailsDialogInfo,
-    CharacterDetailsDialogEpisodes
+    CharacterDetailsDialogEpisodes,
+    CharacterDetailsDialogCharacteres
   },
   props: {
     character: Object,
-    episodesList: Array
+    episodesList: Array,
+    especialCharacterList: Array
   },
-  computed: {
-    isVisible () {
-      return Object.keys(this.character).length > 0
+  methods: {
+    share () {
+      this.$store.commit('dismiss')
     }
   }
 }
 </script>
 
 <style scoped>
-
 </style>
