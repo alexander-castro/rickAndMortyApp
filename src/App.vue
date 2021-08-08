@@ -1,19 +1,15 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-page-container>
-      <CharacterList />
-    </q-page-container>
-  </q-layout>
+  <TabComponent />
 </template>
 
 <script>
 import { ref } from 'vue'
-import CharacterList from './components/CharacterList.vue'
+import TabComponent from '@/components/TabComponent.vue'
 
 export default {
   name: 'LayoutDefault',
   components: {
-    CharacterList
+    TabComponent
   },
   setup () {
     return {
