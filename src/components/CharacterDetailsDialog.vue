@@ -3,6 +3,7 @@
     <q-card>
       <character-details-dialog-header v-bind:character="character"></character-details-dialog-header>
       <character-details-dialog-info v-bind:character="character"></character-details-dialog-info>
+      <q-separator spaced inset />
       <q-card-section class="row justify-center">
       </q-card-section>
       <q-card-actions align="right">
@@ -14,11 +15,13 @@
 
 <script>
 import CharacterDetailsDialogHeader from '@/components/dialog-details/CharacterDetailsDialogHeader.vue'
+import CharacterDetailsDialogInfo from '@/components/dialog-details/CharacterDetailsDialogInfo.vue'
 
 export default {
   name: 'CharacterDetailDialog',
   components: {
-    CharacterDetailsDialogHeader
+    CharacterDetailsDialogHeader,
+    CharacterDetailsDialogInfo
   },
   props: {
     character: Object
