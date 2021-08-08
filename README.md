@@ -18,7 +18,9 @@ axios: 0.21.1
 vue-jest: 5.0.0-0  
 testing-library/vue: 5.8.2  
 jest: 27.0.6  
+vuex: 4.0.2  
 
 ## Dev Tools
 
 Visual Studio Code con: Vetur, StandarJs  
+Google Chrome
