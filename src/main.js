@@ -66,10 +66,14 @@ const store = createStore({
       } else {
         state.favoriteList.push(character)
       }
-      console.log(state.favoriteList)
     },
     changeFilter (state) {
       state.isFavoriteFilter = !state.isFavoriteFilter
+    },
+    removeFilters (state) {
+      state.gender = ''
+      state.name = ''
+      state.isFavoriteFilter = false
     }
   },
   getters: {
