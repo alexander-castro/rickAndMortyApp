@@ -3,8 +3,8 @@
     <q-card-section horizontal>
       <q-card-section class="q-pa-none image-character">
         <q-img class="col image-character" :src="image" />
-        <q-btn class="btn-fav button-float" round size="sm">
-          <q-icon class="disabled-color" name="start" size="xs" />
+        <q-btn class="btn-fav button-float" round size="sm" @click="changeFavorite">
+          <q-icon :class="[ isFavorite ? 'favorite' : 'disabled-color' ]" name="start" size="xs" />
         </q-btn>
       </q-card-section>
       <q-card-section class="cursor-pointer" @click="$emit('showDetailsModal', id)">
@@ -43,6 +43,16 @@ export default {
   },
   data () {
     return {}
+  },
+  methods: {
+    changeFavorite () {
+      this.$store.commit('changeFavorite', this.id)
+    }
+  },
+  computed: {
+    isFavorite () {
+      return this.$store.getters.isFavorite(this.id)
+    }
   },
   emits: ['showDetailsModal']
 }

@@ -9,8 +9,8 @@
     <q-avatar class="img" size="155px">
       <img :src="character.image" />
     </q-avatar>
-    <q-btn class="btn-fav button-float" round size="sm">
-      <q-icon class="disabled-color" name="start" size="xs" />
+    <q-btn class="btn-fav button-float" round size="sm" @click="changeFavorite">
+      <q-icon :class="[ isFavorite ? 'favorite' : 'disabled-color' ]" name="start" size="xs" />
     </q-btn>
   </q-card-section>
   <q-card-section class="q-pa-none column items-center q-gutter-sm section-general" style="height: 100px">
@@ -29,6 +29,14 @@ export default {
   methods: {
     dismiss () {
       this.$store.commit('dismiss')
+    },
+    changeFavorite () {
+      this.$store.commit('changeFavorite', this.character.id)
+    }
+  },
+  computed: {
+    isFavorite () {
+      return this.$store.getters.isFavorite(this.character.id)
     }
   }
 }

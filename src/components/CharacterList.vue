@@ -81,7 +81,7 @@ export default {
       }
     },
     showFavorites () {
-      console.log('')
+      this.$store.commit('changeFilter')
     }
   },
   mounted () {

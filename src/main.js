@@ -18,7 +18,9 @@ const store = createStore({
       page: 1,
       list: [],
       gender: '',
-      name: ''
+      name: '',
+      favoriteList: [],
+      isFavoriteFilter: false
     }
   },
   actions: {
@@ -56,10 +58,25 @@ const store = createStore({
     },
     dismiss (state) {
       state.visible = false
+    },
+    changeFavorite (state, character) {
+      const index = state.favoriteList.findIndex(element => element === character)
+      if (index >= 0) {
+        state.favoriteList.splice(index, 1)
+      } else {
+        state.favoriteList.push(character)
+      }
+      console.log(state.favoriteList)
+    },
+    changeFilter (state) {
+      state.isFavoriteFilter = !state.isFavoriteFilter
     }
   },
   getters: {
-    getList (state) {
+    getList (state, getters) {
+      if (state.isFavoriteFilter) {
+        return state.list.filter(character => getters.isFavorite(character.id))
+      }
       return state.list
     },
     getGender (state) {
@@ -67,6 +84,9 @@ const store = createStore({
     },
     getName (state) {
       return state.name
+    },
+    isFavorite: (state) => (id) => {
+      return state.favoriteList.findIndex(element => element === id) >= 0
     }
   }
 })
