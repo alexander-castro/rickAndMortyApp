@@ -23,9 +23,13 @@ export default {
   },
   methods: {
     search () {
+      if (this.searchText.length === 0) {
+        this.$store.dispatch('loadList')
+        return
+      }
       if (this.searchText.length > 3) {
-        console.log(this.searchText)
-        this.$store.dispatch('search', this.searchText)
+        this.$store.commit('setName', this.searchText)
+        this.$store.dispatch('loadList')
       }
     }
   }

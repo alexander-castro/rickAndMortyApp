@@ -16,18 +16,22 @@ const store = createStore({
     return {
       visible: false,
       page: 1,
-      list: []
+      list: [],
+      gender: '',
+      name: ''
     }
   },
   actions: {
-    async loadList ({ commit }) {
-      const { data } = await axios.get(app.config.globalProperties.API + '/character/?page=' + 1)
-      commit('setList', data.results)
-    },
-    async search ({ commit }, name) {
-      console.log(name)
+    async loadList ({ commit, getters }) {
+      let endpoint = '/character/?'
       try {
-        const { data } = await axios.get(app.config.globalProperties.API + '/character/?name=' + name)
+        if (getters.getGender !== '') {
+          endpoint += 'gender=' + getters.getGender + '&'
+        }
+        if (getters.getName !== '') {
+          endpoint += 'name=' + getters.getName + '&'
+        }
+        const { data } = await axios.get(app.config.globalProperties.API + endpoint)
         commit('setList', data.results)
       } catch (error) {
         commit('setList', [])
@@ -41,8 +45,14 @@ const store = createStore({
     setPage (state, page) {
       state.page = page
     },
+    setGender (state, gender) {
+      state.gender = gender
+    },
     setVisible (state) {
       state.visible = true
+    },
+    setName (state, name) {
+      state.name = name
     },
     dismiss (state) {
       state.visible = false
@@ -51,6 +61,12 @@ const store = createStore({
   getters: {
     getList (state) {
       return state.list
+    },
+    getGender (state) {
+      return state.gender
+    },
+    getName (state) {
+      return state.name
     }
   }
 })

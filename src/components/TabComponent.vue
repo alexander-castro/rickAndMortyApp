@@ -13,11 +13,11 @@
           narrow-indicator
           style="height: 80px"
         >
-          <q-tab name="all" label="All" />
-          <q-tab name="unknown" label="Unknown" />
-          <q-tab name="female" label="Female" />
-          <q-tab name="male" label="Male" />
-          <q-tab name="genderless" label="Genderless" />
+          <q-tab name="all" label="All" v-on:click="setGenderFilter('')"/>
+          <q-tab name="unknown" label="Unknown" v-on:click="setGenderFilter('unknown')"/>
+          <q-tab name="female" label="Female" v-on:click="setGenderFilter('female')"/>
+          <q-tab name="male" label="Male" v-on:click="setGenderFilter('male')"/>
+          <q-tab name="genderless" label="Genderless" v-on:click="setGenderFilter('genderless')"/>
         </q-tabs>
         <q-separator />
         <q-tab-panels v-model="tab" animated>
@@ -55,6 +55,11 @@ export default {
   data () {
     return {
       tab: 'all'
+    }
+  },
+  methods: {
+    setGenderFilter (gender) {
+      this.$store.commit('setGender', gender)
     }
   }
 }
