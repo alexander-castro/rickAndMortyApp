@@ -96,7 +96,7 @@ export default {
   margin-right: 5px;
 }
 .btn-fav {
-  transform: translate(-120%, 340%);
+  transform: translate(-120%, 400%);
 }
 .status-indicator.red {
   background: #eb5757;
