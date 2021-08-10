@@ -12,7 +12,7 @@
       <div class="row">
         <div v-if="characterList.length > 0" class="row q-gutter-md justify-between">
           <div class="col-md-3" v-for="character in characterList" :key="character.id">
-            <character-card v-bind="character" @show-details-modal="showDetailsModal"/>
+            <character-card v-bind:character="character" @show-details-modal="showDetailsModal"/>
           </div>
           <div class="col-md-3"></div>
         </div>

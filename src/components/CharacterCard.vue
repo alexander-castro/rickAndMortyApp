@@ -2,27 +2,27 @@
   <q-card class="my-card card-character" flat bordered>
     <q-card-section horizontal>
       <q-card-section class="q-pa-none image-character">
-        <q-img class="col image-character" :src="image" />
+        <q-img class="col image-character" :src="character.image" />
         <q-btn class="btn-fav button-float" round size="sm" @click="changeFavorite">
           <q-icon :class="[ isFavorite ? 'favorite' : 'disabled-color' ]" name="start" size="xs" />
         </q-btn>
       </q-card-section>
-      <q-card-section class="cursor-pointer" @click="$emit('showDetailsModal', id)">
+      <q-card-section class="cursor-pointer" @click="$emit('showDetailsModal', character.id)">
             <q-card-section class="q-pa-none q-pb-sm">
               <div class="label-status">
-                <q-badge class="status-indicator q-pa-none" :class="[status === 'Alive' ? 'green' : 'red']" rounded />
-                <span id="status">{{ status }}</span>
-                - <span id="type">{{ species }}</span>
+                <q-badge class="status-indicator q-pa-none" :class="[character.status === 'Alive' ? 'green' : 'red']" rounded />
+                <span id="status">{{ character.status }}</span>
+                - <span id="type">{{ character.species }}</span>
               </div>
-              <div id="name" class="label-name">{{ name }}</div>
+              <div id="name" class="label-name">{{ character.name }}</div>
             </q-card-section>
             <q-card-section class="q-pa-none q-pb-sm">
               <div id="locationLb" class="label">Last known location:</div>
-              <div id="location" class="label-field">{{ location.name }}</div>
+              <div id="location" class="label-field">{{ character.location.name }}</div>
             </q-card-section>
             <q-card-section class="q-pa-none">
               <div id="lastSeenLb" class="label">First seen in:</div>
-              <div id="lastSeen" class="label-field">{{ origin.name }}</div>
+              <div id="lastSeen" class="label-field">{{ character.origin.name }}</div>
             </q-card-section>
       </q-card-section>
     </q-card-section>
@@ -33,25 +33,19 @@
 export default {
   name: 'CharacterCard',
   props: {
-    id: Number,
-    name: String,
-    status: String,
-    species: String,
-    location: Object,
-    origin: Object,
-    image: String
+    character: Object
   },
   data () {
     return {}
   },
   methods: {
     changeFavorite () {
-      this.$store.commit('changeFavorite', this.id)
+      this.$store.commit('changeFavorite', this.character.id)
     }
   },
   computed: {
     isFavorite () {
-      return this.$store.getters.isFavorite(this.id)
+      return this.$store.getters.isFavorite(this.character.id)
     }
   },
   emits: ['showDetailsModal']

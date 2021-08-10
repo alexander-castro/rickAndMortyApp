@@ -4,7 +4,7 @@
   </q-card-section>
   <q-card-section class="row justify-between q-gutter-xs">
     <div class="col-md-3" v-for="character in characterList" :key="character.id">
-      <character-card v-bind="character" />
+      <character-card v-bind:character="character" />
     </div>
   </q-card-section>
 </template>
