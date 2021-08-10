@@ -1,6 +1,5 @@
 <template>
   <div class="row" style="width: 100%">
-    <tab-component></tab-component>
     <div class="col-md-10 offset-md-1">
       <div class="row vertical-middle">
         <h4 class="label">

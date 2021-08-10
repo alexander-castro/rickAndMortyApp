@@ -5,7 +5,7 @@ import quasarUserOptions from './quasar-user-options'
 import './assets/main.css'
 import axios from 'axios'
 import { createStore } from 'vuex'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import TabComponent from '@/components/TabComponent.vue'
 import DetailCharacterPage from '@/components/DetailCharacterPage.vue'
 
@@ -19,7 +19,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 })
 app.use(router)

@@ -63,7 +63,7 @@ export default {
   border: 1px solid #e0e0e0;
   box-sizing: content-box;
   border-radius: 10px;
-  height: 140px;
+  height: 155px;
   width: 326px;
   max-width: 326px;
 }
@@ -87,8 +87,8 @@ export default {
 }
 .image-character {
   border-radius: 10px 0px 0px 10px;
-  height: 140px;
-  width: 140px;
+  height: 155px;
+  width: 155px;
 }
 .status-indicator {
   min-height: 6px !important;

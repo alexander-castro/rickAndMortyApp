@@ -50,7 +50,7 @@ export default {
 }
 .search-text {
   width: 450px;
-  height: 60px;
+  max-height: 60px;
   background: #081f32;
   border: none !important;
   font-size: 18px;
