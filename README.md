@@ -26,7 +26,7 @@ vue-router: 4.0.11
 Visual Studio Code con: Vetur, StandarJs  
 Google Chrome
 
-##Proceso
+## Proceso
 
 Para la aplicación de Rick and Morty me base en la metodología de trabajo de MVP (Minimum Viable Product) colocándome en el papel del usuario y priorizando las funciones más esenciales de la aplicación primero, es decir ver las tarjetas de los personajes, al inicio hice la parte grafica de los componentes y use datos predeterminamos, luego agregue el consumo de servicios y la lógica de los componentes. Me pareció importante mostrar los detalles de un personaje para ello dividí el componente en cinco secciones. Luego pase a hacer los filtros por pestaña y el de búsqueda, por último, agregue soporte para marcar personajes favoritos. Finalmente hice algunos ajustes a las tarjetas de personajes para mejorar su visualización.
 
