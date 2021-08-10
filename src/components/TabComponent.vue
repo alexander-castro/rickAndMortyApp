@@ -4,7 +4,7 @@
       <q-page-container>
         <search-component />
         <div class="col col-md-12">
-          <q-card>
+          <q-card style="box-shadow:none">
             <q-tabs
               v-model="tab"
               dense
