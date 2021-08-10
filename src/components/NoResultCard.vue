@@ -13,10 +13,6 @@
 <script>
 export default {
   name: 'NoResultCard',
-  props: {},
-  data () {
-    return {}
-  },
   methods: {
     removeFilters () {
       this.$store.commit('removeFilters')

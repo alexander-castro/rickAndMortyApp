@@ -65,6 +65,7 @@ export default {
   border-radius: 10px;
   height: 140px;
   width: 326px;
+  max-width: 326px;
 }
 .label {
   font-size: 10px;

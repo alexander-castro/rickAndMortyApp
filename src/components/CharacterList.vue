@@ -29,9 +29,11 @@
 import CharacterCard from '@/components/CharacterCard.vue'
 import NoResultCard from '@/components/NoResultCard.vue'
 import CharacterDetailsDialog from '@/components/CharacterDetailsDialog.vue'
+import CharacterService from '@/hooks/characterService'
 
 export default {
   name: 'CharacterList',
+  mixins: [CharacterService],
   components: {
     CharacterCard,
     NoResultCard,
@@ -54,31 +56,9 @@ export default {
     async showDetailsModal (id) {
       this.actualCharacter = this.characterList.find(character => character.id === id)
       const episodeIdList = this.extractIds(this.actualCharacter.episode)
-      const { data } = await this.axios.get(this.API + '/episode/' + episodeIdList)
-      if (episodeIdList.length > 1) {
-        this.episodesList = data
-      } else {
-        this.episodesList = new Array(data)
-      }
-      this.getEspecialCharactersList()
+      this.episodesList = await this.getEpisodeList(episodeIdList)
+      this.especialCharacterList = await this.getEspecialCharactersList(this.episodesList)
       this.$store.commit('setVisible')
-    },
-    extractIds (list) {
-      return Array.from(list, x => x.substring(x.lastIndexOf('/') + 1, x.length))
-    },
-    async getEspecialCharactersList () {
-      const characters = new Set()
-      this.episodesList.forEach(function (episode) {
-        characters.add(episode.characters[Math.floor(Math.random() * episode.characters.length)])
-      })
-      const characterIdsList = this.extractIds(characters)
-      const topSix = characterIdsList.slice(0, characterIdsList.length > 6 ? 6 : characterIdsList.length)
-      const { data } = await this.axios.get(this.API + '/character/' + topSix)
-      if (characterIdsList.length > 1) {
-        this.especialCharacterList = data
-      } else {
-        this.especialCharacterList = new Array(data)
-      }
     },
     showFavorites () {
       this.$store.commit('changeFilter')

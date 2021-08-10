@@ -1,7 +1,7 @@
 <template>
   <q-card-section class="row justify-end q-pa-none section-general">
     <img class="background-img" src="@/assets/background.jpg" />
-    <q-btn class="close-btn" color="black" flat round dense @click="dismiss">
+    <q-btn class="close-btn" color="black" flat round dense @click="dismiss" v-if="dialog">
       <q-icon class="close-icon" name="close" size="sm" />
     </q-btn>
   </q-card-section>
@@ -24,7 +24,8 @@
 export default {
   name: 'CharacterDetailsDialogHeader',
   props: {
-    character: Object
+    character: Object,
+    dialog: Boolean
   },
   methods: {
     dismiss () {
@@ -48,9 +49,9 @@ export default {
 }
 .background-img {
   background: rgba(0, 0, 0, 0.4);
-  width: 740px;
+  width: 100%;
   height: 220px;
-  object-fit: cover;
+  object-fit: fill;
 }
 .close-btn {
   transform: translate(0%, -650%);

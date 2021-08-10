@@ -1,8 +1,8 @@
 <template>
   <q-dialog v-model="$store.state.visible">
-    <q-card style="max-width: 760px">
+    <q-card style="max-width: 1300px">
       <input type="hidden" ref="textToCopy" v-model="fullUrl" />
-      <character-details-dialog-header v-bind:character="character" />
+      <character-details-dialog-header v-bind:character="character" v-bind:dialog="true"/>
       <character-details-dialog-info v-bind:character="character" />
       <q-separator spaced inset />
       <characterDetailsDialogEpisodes v-bind:episodes-list="episodesList" />
@@ -34,7 +34,7 @@ import CharacterDetailsDialogEpisodes from '@/components/dialog-details/Characte
 import CharacterDetailsDialogCharacteres from '@/components/dialog-details/CharacterDetailsDialogCharacteres.vue'
 
 export default {
-  name: 'CharacterDetailDialog',
+  name: 'CharacterDetailsDialog',
   components: {
     CharacterDetailsDialogHeader,
     CharacterDetailsDialogInfo,
@@ -54,13 +54,10 @@ export default {
   },
   methods: {
     share () {
-      this.fullUrl = 'http://myweb/' + this.character.id
+      this.fullUrl = window.location.origin + '/character/' + this.character.id
       navigator.clipboard.writeText(this.fullUrl)
       this.dialogConfirmCopy = true
     }
   }
 }
 </script>
-
-<style scoped>
-</style>
