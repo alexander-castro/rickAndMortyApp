@@ -41,6 +41,7 @@ export default {
 .img-background {
   min-height: 450px;
   background-size: cover;
+  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
 }
 .img-title {
   min-height: 125px;
@@ -54,6 +55,7 @@ export default {
   background: #081f32;
   border: 2px solid #f2f2f2;
   box-sizing: border-box;
+  border-radius: 6px;
 }
 .search-text {
   width: 450px;

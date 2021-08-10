@@ -1,6 +1,6 @@
 <template>
   <q-dialog v-model="$store.state.visible">
-    <q-card style="max-width: 1300px">
+    <q-card class="card-header">
       <input type="hidden" ref="textToCopy" v-model="fullUrl" />
       <character-details-dialog-header v-bind:character="character" v-bind:dialog="true"/>
       <character-details-dialog-info v-bind:character="character" />
@@ -61,3 +61,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.card-header {
+  max-width: 1300px;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+</style>

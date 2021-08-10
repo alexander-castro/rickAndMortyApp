@@ -5,7 +5,7 @@
         <h4 class="label">
           Mostrar favoritos:
           <q-btn class="button-float btn-fav" round size="sm" @click="showFavorites">
-            <q-icon class="disabled-color" name="start" size="xs" />
+            <q-icon :class="[ isFavoriteActive ? 'favorite' : 'disabled-color' ]" name="start" size="xs" />
           </q-btn>
         </h4>
       </div>
@@ -38,17 +38,20 @@ export default {
     NoResultCard,
     CharacterDetailsDialog
   },
-  props: {},
   data () {
     return {
       actualCharacter: {},
       episodesList: [],
-      especialCharacterList: []
+      especialCharacterList: [],
+      isFavorite: false
     }
   },
   computed: {
     characterList () {
       return this.$store.getters.getList
+    },
+    isFavoriteActive () {
+      return this.$store.getters.isFavoriteActive
     }
   },
   methods: {

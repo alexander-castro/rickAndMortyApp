@@ -106,6 +106,9 @@ const store = createStore({
     },
     isFavorite: (state) => (id) => {
       return state.favoriteList.findIndex(element => element === id) >= 0
+    },
+    isFavoriteActive (state) {
+      return state.isFavoriteFilter
     }
   }
 })

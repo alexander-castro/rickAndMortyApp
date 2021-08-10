@@ -1,6 +1,7 @@
 <template>
-  <q-card-section class="row justify-end q-pa-none section-general">
-    <img class="background-img" src="@/assets/background.jpg" />
+  <q-card-section class="row justify-end q-pa-none background-img" v-bind:style="{
+      'background-image': 'url(' + require('@/assets/bg.png') + ')'
+    }">
     <q-btn class="close-btn" color="black" flat round dense @click="dismiss" v-if="dialog">
       <q-icon class="close-icon" name="close" size="sm" />
     </q-btn>
@@ -48,10 +49,12 @@ export default {
   background: #f2f2f2;
 }
 .background-img {
-  background: rgba(0, 0, 0, 0.4);
+  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
   width: 100%;
-  height: 220px;
-  object-fit: fill;
+  min-height: 220px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px 10px 0px 0px;
 }
 .close-btn {
   transform: translate(0%, -650%);
