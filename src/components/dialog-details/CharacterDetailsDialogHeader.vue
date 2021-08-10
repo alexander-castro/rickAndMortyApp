@@ -14,7 +14,7 @@
       <q-icon :class="[ isFavorite ? 'favorite' : 'disabled-color' ]" name="start" size="xs" />
     </q-btn>
   </q-card-section>
-  <q-card-section class="q-pa-none column items-center q-gutter-sm section-general" style="height: 100px">
+  <q-card-section class="q-pa-none column items-center section-general" style="height: 100px">
     <div class="col-auto label-type">{{ character.status }}</div>
     <div class="col-auto label-name">{{ character.name }}</div>
     <div class="col-auto label-type">{{ character.species }}</div>
