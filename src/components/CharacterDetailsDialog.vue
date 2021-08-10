@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     share () {
-      this.fullUrl = window.location.origin + '/character/' + this.character.id
+      this.fullUrl = window.location.origin + '/#/character/' + this.character.id
       navigator.clipboard.writeText(this.fullUrl)
       this.dialogConfirmCopy = true
     }
