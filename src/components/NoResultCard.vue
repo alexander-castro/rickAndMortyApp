@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-center">
+  <div id="noResultCard" class="row justify-center">
     <div class="col">
       <h3 class="title">Uh-oh!</h3>
       <h5 class="sub-title">¡Pareces perdido en tu viaje!</h5>

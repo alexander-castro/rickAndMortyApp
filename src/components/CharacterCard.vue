@@ -3,8 +3,8 @@
     <q-card-section horizontal>
       <q-card-section class="q-pa-none image-character">
         <q-img class="col image-character" :src="character.image" />
-        <q-btn class="btn-fav button-float" round size="sm" @click="changeFavorite">
-          <q-icon :class="[ isFavorite ? 'favorite' : 'disabled-color' ]" name="start" size="xs" />
+        <q-btn id="changeFavorite" class="btn-fav button-float" round size="sm" @click="changeFavorite">
+          <q-icon id="favoriteIcon" :class="[ isFavorite ? 'favorite' : 'disabled-color' ]" name="start" size="xs" />
         </q-btn>
       </q-card-section>
       <q-card-section class="cursor-pointer" @click="$emit('showDetailsModal', character.id)">

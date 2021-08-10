@@ -2,7 +2,7 @@
   <div class="row" style="width: 100%">
     <div class="col-md-10 offset-md-1">
       <div class="row vertical-middle">
-        <h4 class="label">
+        <h4 id="lbFavorites" class="label">
           Mostrar favoritos:
           <q-btn class="button-float btn-fav" round size="sm" @click="showFavorites">
             <q-icon :class="[ isFavoriteActive ? 'favorite' : 'disabled-color' ]" name="start" size="xs" />
