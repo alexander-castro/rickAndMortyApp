@@ -9,6 +9,7 @@
       <character-details-dialog-characteres v-bind:character-list="especialCharacterList" />
     </q-card>
   </div>
+  <FooterPage/>
 </template>
 
 <script>
@@ -16,6 +17,7 @@ import CharacterDetailsDialogHeader from '@/components/dialog-details/CharacterD
 import CharacterDetailsDialogInfo from '@/components/dialog-details/CharacterDetailsDialogInfo.vue'
 import CharacterDetailsDialogEpisodes from '@/components/dialog-details/CharacterDetailsDialogEpisodes.vue'
 import CharacterDetailsDialogCharacteres from '@/components/dialog-details/CharacterDetailsDialogCharacteres.vue'
+import FooterPage from '@/components/FooterPage.vue'
 import CharacterService from '@/hooks/characterService'
 
 export default {
@@ -25,7 +27,8 @@ export default {
     CharacterDetailsDialogHeader,
     CharacterDetailsDialogInfo,
     CharacterDetailsDialogEpisodes,
-    CharacterDetailsDialogCharacteres
+    CharacterDetailsDialogCharacteres,
+    FooterPage
   },
   data () {
     return {

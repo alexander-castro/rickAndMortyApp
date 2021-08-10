@@ -39,18 +39,21 @@
         </q-tab-panels>
       </q-card>
     </div>
+    <FooterPage/>
   </div>
 </template>
 
 <script>
 import CharacterList from '@/components/CharacterList.vue'
 import SearchComponent from '@/components/SearchComponent.vue'
+import FooterPage from '@/components/FooterPage.vue'
 
 export default {
   name: 'TabComponent',
   components: {
     CharacterList,
-    SearchComponent
+    SearchComponent,
+    FooterPage
   },
   data () {
     return {
