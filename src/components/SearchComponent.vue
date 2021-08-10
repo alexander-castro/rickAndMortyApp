@@ -6,6 +6,7 @@
         'url(https://www.earlygame.com/uploads/images/_1200x630_crop_center-center_82_none/rick-morty-season-5.jpg)'
     }"
   >
+    <img class="img-title row" src="@/assets/rickAndMorty.png" />
     <div class="search-bar row col-2 items-center">
       <q-icon name="search" size="lg" color="white" />
       <input v-model="searchText" class="search-text" placeholder="Buscar personaje..." v-on:input="search" />
@@ -41,6 +42,12 @@ export default {
   min-height: 450px;
   background-size: cover;
 }
+.img-title {
+  min-height: 125px;
+  min-width: 350px;
+  max-height: 125px;
+  max-width: 350px;
+}
 .search-bar {
   width: 500px;
   max-height: 60px;
@@ -59,5 +66,14 @@ export default {
 }
 input:focus {
   outline: none;
+}
+::-webkit-input-placeholder { /* Edge */
+  color: #ffffff;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ffffff;
+}
+::placeholder {
+  color: #ffffff;
 }
 </style>
