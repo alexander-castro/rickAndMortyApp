@@ -1,4 +1,4 @@
-# Rick and Morty App
+# Rick and Morty Application
 
 Proyecto para la gestión de personajes favoritos del programa de televisión Rick and Morty (prueba técnica Suazo.co)
 Next U V6
