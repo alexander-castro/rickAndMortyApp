@@ -1,6 +1,8 @@
 # Rick and Morty App
 
-By Alexander Castro
+By Alexander Castro with Students of NextU
+
+2021 - 12 - 31
 
 Proyecto para la gestión de personajes favoritos del programa de televisión Rick and Morty (prueba técnica Suazo.co)
 
@@ -21,7 +23,6 @@ vue-jest: 5.0.0-0
 testing-library/vue: 5.8.2
 jest: 27.0.6
 vuex: 4.0.2
-vue-router: 4.0.11
 
 ## Dev Tools
 
