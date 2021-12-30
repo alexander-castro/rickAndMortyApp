@@ -1,0 +1,5 @@
+const connection = "";
+
+function test(){
+	return conn(connection);
+}
