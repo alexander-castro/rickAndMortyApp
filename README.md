@@ -2,7 +2,7 @@
 
 By Alexander Castro with Students of NextU
 
-2021 - 12 - 31
+2021 - 12 - 29
 
 Proyecto para la gestión de personajes favoritos del programa de televisión Rick and Morty (prueba técnica Suazo.co)
 
